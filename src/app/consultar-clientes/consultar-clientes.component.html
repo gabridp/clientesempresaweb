@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-body">
+        <h5>Consulta de Clientes</h5>
+        <p>Listagem de clientes cadastrados.</p>
+        <div *ngIf="mensagem_sucesso" class="alert alert-success 
+                    alert-dismissible fade show mt-2" role="alert">
+            <strong>Sucesso!</strong> {{mensagem_sucesso}}
+            <button type="button" class="btn-close" aria-label="Close" 
+                    (click)="limparMensagens()"></button>
+        </div>
+
+        <div *ngIf="mensagem_erro" class="alert alert-danger alert-
+             dismissible fade show mt-2" role="alert">
+            <strong>Erro!</strong> {{mensagem_erro}}
+            <button type="button" class="btn-close" aria-label="Close" 
+                    (click)="limparMensagens()"></button>
+        </div>
+        
+        <table class="table table-hover mt-3">
+            <thead>
+                <tr>
+                    <th>Nome do cliente</th>
+                    <th>E-mail</th>
+                    <th>CPF</th>
+                    <th>Cadastrado em</th>
+                    <th>Operações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of clientes">
+                    <td>{{c.nome | uppercase}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.cpf}}</td>
+                    <td>{{c.dataNascimento}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary"
+                            [routerLink]="['/editar-clientes', c.idCliente]"> 
+                            Alterar
+                        </button>                       
+                         &nbsp;
+                        <button class="btn btn-sm btn-danger"
+                            (click)="excluircliente(c.idCliente)">
+                            Excluir
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="12">
+                        Quantidade de clientes: {{clientes.length}}
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>  
