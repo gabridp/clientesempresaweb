@@ -1,7 +1,7 @@
 
 export const environment = {
- /* apiUrl: 'http://apiprojetofinal-001-site1.btempurl.com/',*/
-  apiUrl: 'http://localhost:5031/api',
+  apiUrl: 'http://apiprojetofinal-001-site1.btempurl.com/api',
+/*  apiUrl: 'http://localhost:5031/api',*/
   production: false
 };
 
